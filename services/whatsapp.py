@@ -11,7 +11,7 @@ def sendMessage(number, name):
     
     payload = {
         "phone": number,
-        "message": f"Ola, {name} tudo bem com você?"
+        "message": f"Olá, {name} tudo bem com você?"
     };
 
     url = getURL();
