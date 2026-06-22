@@ -10,7 +10,7 @@ try:
     contacts = response["data"];
 
     for contact in contacts:
-        name = contact["name"];
+        name = contact["name"] or "";
         number = contact["number"];
 
         res = whats_service.sendMessage(number, name);
