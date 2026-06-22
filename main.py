@@ -1,6 +1,6 @@
-import services.supabase as supa_service
-import services.whatsapp as whats_service
+from services import supabase as supa_service
+from services import whatsapp as whats_service
 
-contatos = supa_service.getContacts()
+contacts = supa_service.getContacts()
 
-print(contatos)
+res = whats_service.sendMessage(contacts["data"][1]["number"], contacts["data"][1]["name"])

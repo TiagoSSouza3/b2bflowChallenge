@@ -1,21 +1,19 @@
-from ast import Try
-from supabase import create_client
-import os
-from dotenv import load_dotenv
+import os;
+from supabase import create_client;
+from dotenv import load_dotenv;
 
-load_dotenv()
+load_dotenv();
 
 # Busca todos os contatos do banco de dados
 def getContacts():
     try:
         supabase = createClient();
 
-        response = supabase.table("contacts").select("*").execute();
+        res = supabase.table("contacts").select("*").execute();
         
-        return response.data;
+        return {"type":"Success", "data":res.data};
     except Exception as e:
-        print("Erro ao buscar contatos: ", e);
-        return [];
+        return {"type":"Error", "message":e};
 
 # Cria a instacia do supabase com as informações do .env
 def createClient():
